@@ -1,0 +1,377 @@
+"DOTAAbilities"
+{
+	// 饰品slot:01  ID:2001--2100
+	"item_ran_01_01"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"2001"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_energy_booster"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"300"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"0"		
+		"ItemInitialCharges"			"0"		
+		"ItemCastOnPickup"				"0"
+	}
+
+	// 武器slot:02  ID:2101--2200
+	"item_ran_02_01"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"2101"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_quelling_blade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"300"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"0"		
+		"ItemInitialCharges"			"0"		
+		"ItemCastOnPickup"				"0"
+	}
+
+	// 帽子slot:03  ID:2201--2300
+	"item_ran_03_01"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"2201"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_circlet"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"300"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"0"		
+		"ItemInitialCharges"			"0"		
+		"ItemCastOnPickup"				"0"
+	}
+
+	// 项链slot:04  ID:2301--2400
+	"item_ran_04_01"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"2301"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_medallion_of_courage"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"300"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"0"		
+		"ItemInitialCharges"			"0"		
+		"ItemCastOnPickup"				"0"
+	}
+
+	// 胸甲slot:05  ID:2401--2500
+	"item_ran_05_01"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"2401"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_robe"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"300"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"0"		
+		"ItemInitialCharges"			"0"		
+		"ItemCastOnPickup"				"0"
+	}
+
+	// 腰带slot:06  ID:2501--2600
+	"item_ran_06_01"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"2501"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_belt_of_strength"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"300"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"0"		
+		"ItemInitialCharges"			"0"		
+		"ItemCastOnPickup"				"0"
+	}
+
+	// 裤子slot:07  ID:2601--2700
+	"item_ran_07_01"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"2601"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_bracer"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"300"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"0"		
+		"ItemInitialCharges"			"0"		
+		"ItemCastOnPickup"				"0"
+	}
+
+	// 鞋子slot:08  ID:2701--2800
+	"item_ran_08_01"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"2701"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_boots"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"300"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"0"		
+		"ItemInitialCharges"			"0"		
+		"ItemCastOnPickup"				"0"
+	}
+
+	// 披肩slot:09  ID:2801--2900
+	"item_ran_09_01"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"2801"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_glimmer_cape"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"300"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"0"		
+		"ItemInitialCharges"			"0"		
+		"ItemCastOnPickup"				"0"
+	}
+
+	// 戒指slot:10  ID:2901--3000
+	"item_ran_10_01"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"2901"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_ring_of_protection"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"300"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"0"		
+		"ItemInitialCharges"			"0"		
+		"ItemCastOnPickup"				"0"
+	}
+
+	// 宝箱 等级01 ID:3001--3100
+	"item_chest_01"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3001"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_present"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/treasure_chest001.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"1"		
+		"ItemInitialCharges"			"1"		
+		"ItemCastOnPickup"				"0"
+	}
+
+	"item_chest_02"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3002"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_present"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/treasure_chest001.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"1"		
+		"ItemInitialCharges"			"1"		
+		"ItemCastOnPickup"				"0"
+	}
+
+	"item_chest_03"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3003"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_present"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/treasure_chest001.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"1"		
+		"ItemInitialCharges"			"1"		
+		"ItemCastOnPickup"				"0"
+	}
+
+	"item_chest_04"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3004"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_present"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/treasure_chest001.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"1"		
+		"ItemInitialCharges"			"1"		
+		"ItemCastOnPickup"				"0"
+	}
+}

@@ -1,0 +1,154 @@
+// Dota Heroes File
+// NOTE: This is not for creating new heroes, this is for taking a currently existing hero as a template and overriding
+// the specified key-value combinations.  Use override_hero <hero_to_override> for this.
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	// HERO: Dragon Knight
+	//=================================================================================================================
+	"npc_dota_hero_dragon_knight"
+	{
+		"override_hero"				"npc_dota_hero_dragon_knight"			// Hero to override
+		
+		"AbilityLayout"				"6"
+		"Ability1"					""		// Ability 1
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+		"Ability5"					""
+		"Ability6"					""
+
+		"ArmorPhysical"				"5"
+		"MagicalResistance"			"25"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"50"
+		"AttackDamageMax"			"50"
+		"AttackRate"				"1.7"
+		"AttackAnimationPoint"		"0.4"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"128"
+		"AttackRangeBuffer"			"50"
+
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"		//主属性
+		"AttributeBaseStrength"		"100"							// 基础力量
+		"AttributeStrengthGain"     "10.0"                        // 力量成长
+        "AttributeBaseIntelligence" "50"                         // 基础智力
+        "AttributeIntelligenceGain" "5.0"                         // 智力成长
+        "AttributeBaseAgility"      "70"                         // 基础敏捷
+        "AttributeAgilityGain"      "7.0"                         // 敏捷成长
+
+        "BountyXP"                  "0"                     // 经验奖励
+        "BountyGoldMin"             "0"                     // 最小金钱奖励
+        "BountyGoldMax"             "0"                     // 最大金钱奖励
+
+        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"   // 移动类型
+                                                                //DOTA_UNIT_CAP_MOVE_NONE       不能移动
+                                                                //DOTA_UNIT_CAP_MOVE_GROUND     地面
+                                                                //DOTA_UNIT_CAP_MOVE_FLY        飞行
+        "MovementSpeed"             "300"                       // 移动速度
+        "MovementTurnRate"          "0.5"                       // 转身速度
+        "HasAggressiveStance"       "0"                         // 单位会在接近敌人时切换空闲/跑步的移动动画，比如亚巴顿的模型
+        "FollowRange"               "100"                       // 最低跟随范围
+
+        "StatusHealth"              "500"       // 基础生命值
+        "StatusHealthRegen"         "5.0"         // 生命恢复速度，负值无效
+        "StatusMana"                "250"         // 基础魔法值，设置为0会导致没有魔法条
+        "StatusManaRegen"           "1.0"         // 魔法恢复速度，负值无效
+        "StatusStartingMana"        "-1"        // 单位诞生时的魔法值，-1意味着默认满魔法值
+
+        "TeamName"                  "DOTA_TEAM_GOODGAYS"                // 所属队伍，关系不大
+        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"     // 攻击的伤害类型，攻击类型表如下：
+                                                                        //名称  等价
+                                                                        //普通  DOTA_COMBAT_CLASS_ATTACK_BASIC
+                                                                        //穿刺  DOTA_COMBAT_CLASS_ATTACK_PIERCE
+                                                                        //攻城  DOTA_COMBAT_CLASS_ATTACK_SIEGE
+                                                                        //混乱  DOTA_COMBAT_CLASS_ATTACK_LIGHT
+                                                                        //英雄  DOTA_COMBAT_CLASS_ATTACK_HERO
+        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"     // 护甲类型,护甲类型表如下：
+                                                                        //名称  等价
+                                                                        //无甲  DOTA_COMBAT_CLASS_DEFEND_SOFT
+                                                                        //轻甲  DOTA_COMBAT_CLASS_DEFEND_WEAK
+                                                                        //中甲  DOTA_COMBAT_CLASS_DEFEND_BASIC
+                                                                        //重甲  DOTA_COMBAT_CLASS_DEFEND_STRONG
+                                                                        //建筑  DOTA_COMBAT_CLASS_DEFEND_STRUCTURE
+                                                                        //英雄  DOTA_COMBAT_CLASS_DEFEND_HERO
+		
+		"VisionDaytimeRange"        "1200"          // 白天视野范围
+        "VisionNighttimeRange"      "800"           // 夜晚视野范围
+	}
+    //=================================================================================================================
+    // HERO: Treant Protector
+    //=================================================================================================================
+    "npc_dota_hero_treant"
+    {
+        "override_hero"             "npc_dota_hero_treant"           // Hero to override
+        
+        "AbilityLayout"             "6"
+        "Ability1"                  ""      // Ability 1
+        "Ability2"                  ""
+        "Ability3"                  ""
+        "Ability4"                  ""
+        "Ability5"                  ""
+        "Ability6"                  ""
+
+        "ArmorPhysical"             "3"
+        "MagicalResistance"         "15"
+
+        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageMin"           "50"
+        "AttackDamageMax"           "50"
+        "AttackRate"                "1.7"
+        "AttackAnimationPoint"      "0.4"
+        "AttackAcquisitionRange"    "800"
+        "AttackRange"               "128"
+        "AttackRangeBuffer"         "50"
+
+        "AttributePrimary"          "DOTA_ATTRIBUTE_INTELLECT"       //主属性
+        "AttributeBaseStrength"     "70"                           // 基础力量
+        "AttributeStrengthGain"     "7.0"                        // 力量成长
+        "AttributeBaseIntelligence" "100"                         // 基础智力
+        "AttributeIntelligenceGain" "10.0"                         // 智力成长
+        "AttributeBaseAgility"      "50"                         // 基础敏捷
+        "AttributeAgilityGain"      "5.0"                         // 敏捷成长
+
+        "BountyXP"                  "0"                     // 经验奖励
+        "BountyGoldMin"             "0"                     // 最小金钱奖励
+        "BountyGoldMax"             "0"                     // 最大金钱奖励
+
+        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"   // 移动类型
+                                                                //DOTA_UNIT_CAP_MOVE_NONE       不能移动
+                                                                //DOTA_UNIT_CAP_MOVE_GROUND     地面
+                                                                //DOTA_UNIT_CAP_MOVE_FLY        飞行
+        "MovementSpeed"             "300"                       // 移动速度
+        "MovementTurnRate"          "0.5"                       // 转身速度
+        "HasAggressiveStance"       "0"                         // 单位会在接近敌人时切换空闲/跑步的移动动画，比如亚巴顿的模型
+        "FollowRange"               "100"                       // 最低跟随范围
+
+        "StatusHealth"              "500"       // 基础生命值
+        "StatusHealthRegen"         "2.0"         // 生命恢复速度，负值无效
+        "StatusMana"                "250"         // 基础魔法值，设置为0会导致没有魔法条
+        "StatusManaRegen"           "3.0"         // 魔法恢复速度，负值无效
+        "StatusStartingMana"        "-1"        // 单位诞生时的魔法值，-1意味着默认满魔法值
+
+        "TeamName"                  "DOTA_TEAM_GOODGAYS"                // 所属队伍，关系不大
+        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"     // 攻击的伤害类型，攻击类型表如下：
+                                                                        //名称  等价
+                                                                        //普通  DOTA_COMBAT_CLASS_ATTACK_BASIC
+                                                                        //穿刺  DOTA_COMBAT_CLASS_ATTACK_PIERCE
+                                                                        //攻城  DOTA_COMBAT_CLASS_ATTACK_SIEGE
+                                                                        //混乱  DOTA_COMBAT_CLASS_ATTACK_LIGHT
+                                                                        //英雄  DOTA_COMBAT_CLASS_ATTACK_HERO
+        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"     // 护甲类型,护甲类型表如下：
+                                                                        //名称  等价
+                                                                        //无甲  DOTA_COMBAT_CLASS_DEFEND_SOFT
+                                                                        //轻甲  DOTA_COMBAT_CLASS_DEFEND_WEAK
+                                                                        //中甲  DOTA_COMBAT_CLASS_DEFEND_BASIC
+                                                                        //重甲  DOTA_COMBAT_CLASS_DEFEND_STRONG
+                                                                        //建筑  DOTA_COMBAT_CLASS_DEFEND_STRUCTURE
+                                                                        //英雄  DOTA_COMBAT_CLASS_DEFEND_HERO
+        
+        "VisionDaytimeRange"        "1200"          // 白天视野范围
+        "VisionNighttimeRange"      "800"           // 夜晚视野范围
+    }
+}

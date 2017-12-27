@@ -1,0 +1,83 @@
+﻿"addon"
+{
+	"DOTA_GoodGuys"	"匆匆过客"
+
+
+	// 单位名称
+
+
+
+
+	//物品名称
+
+
+
+	// 装备属性
+
+	"item_owner"				"拥有者"
+	"item_no_owner"				"未绑定"
+	"item_score"				"装备评分"
+	"item_price"				"售价"
+	"equip_score"				"平均装备评分"
+  	
+	"slot_01"                       "饰品"
+	"slot_02"                       "武器"
+	"slot_03"                       "头部"
+	"slot_04"                       "颈部"
+	"slot_05"                       "胸部"
+	"slot_06"                       "腰部"
+	"slot_07"                       "腿部"
+	"slot_08"                       "脚部"
+	"slot_09"                       "肩部"
+	"slot_10"                       "手指"
+
+	"property_str" 			"力量："
+	"property_agi" 			"敏捷："
+	"property_int" 			"智力："
+	"property_ap" 			"攻击强度："
+	"property_sp" 			"法术强度："
+	"property_health" 		"生命值："
+	"property_mana" 		"魔法值："
+	"property_mren" 		"魔法回复："
+	"property_attack" 		"攻击力："
+	"property_aspeed" 		"攻击速度："
+	"property_cd" 			"冷却时间减少%："
+	"property_crit" 		"技能暴击几率%："
+	"property_cdamage"		"技能暴击伤害%："
+	"property_cost" 		"魔法消耗减少%："
+	"property_armor" 		"护甲值："
+	"property_resis" 		"魔法抗性%："
+	"property_evade" 		"闪避%："
+	"property_block" 		"格挡："
+	"property_move"			"移速："
+
+	// 右键菜单
+	"bag_equip_item"		"使用"
+	"bag_drop_item"			"丢弃"
+	"bag_sell_item"			"出售"	
+	"equip_unequip_item"	"卸下"
+	"equip_drop_item"		"丢弃"
+	"equip_sell_item"		"出售"
+
+	// 技能面板
+	"skill_crystal"			"水晶" 
+	"skill_active"			"主动技能：点击'+'升级，点击图标设置为（非）当前技能。"
+	"skill_passive"			"被动技能：点击'+'升级。"
+	"skill_cost"			"花费"
+	"skill_apply"			"应用"
+	"skill_cooldown"		"冷却中"
+
+	// 按钮
+	"button_skill"			"技能C"
+	"button_equip"			"装备V"
+	"button_bag"			"背包B"
+
+
+	// dps
+	"dps_ranking"			"排名"
+	"dps_player"			"玩家"
+	"dps_dps"				"DPS"
+	"dps_hps"				"HPS"
+	"combat_0"				"休息中"
+	"combat_1"				"战斗中"
+}

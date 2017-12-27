@@ -1,0 +1,12 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css"/>
+		<include src="file://{resources}/styles/custom_game/context_menu.css"/>
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/context_menu.js"/>
+	</scripts>
+	<Panel class="ContextMenuRoot" onactivate="GameUI.CustomUIConfig().HideCustomContextMenu()" oncontextmenu="GameUI.CustomUIConfig().HideCustomContextMenu()" >
+		<Panel id="ContentPanel" />
+	</Panel>
+</root>

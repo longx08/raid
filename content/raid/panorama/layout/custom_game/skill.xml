@@ -1,0 +1,31 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/styles/custom_game/koim.css" />
+		<include src="file://{resources}/styles/custom_game/skill.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/skill.js" />
+	</scripts>
+	<snippets>
+		<snippet name="ability">
+			<Panel class="ability down" hittest="false" >
+				<Label id="name"/>
+				<Panel class="right" hittest="false">
+					<DOTAAbilityImage id="ability_img" />
+					<Label id="level_up" text="level up" />
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="SkillOverlay" hittest="false" >
+		<Panel class="down hidden" id="ContentPanel" hittest = "false">
+			<Label id="SkillTitle" text="title"/>
+			<Label class="KindLable" id="ActiveLabel" hittest="false" text="#skill_active" />
+			<Panel class="down" id="ActivePanel"/>
+			<Label class="KindLable" id="PassiveLabel" text="#skill_passive"/>
+			<Panel class="down" id="PassivePanel" />
+			<Label id="ApplyButton" text="#skill_apply" onactivate="OnApplyButton()" />
+		</Panel>
+	</Panel>
+</root>

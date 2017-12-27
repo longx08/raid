@@ -1,0 +1,25 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/styles/custom_game/koim.css" />
+		<include src="file://{resources}/styles/custom_game/bag.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/bag.js" />
+		<include src="file://{resources}/scripts/custom_game/tooltip.js" />
+	</scripts>
+	<snippets>
+		<snippet name="slot">
+			<Panel class="slot" hittestchildren="false">
+				<DOTAItemImage id="item_img" scaling="stretch-to-fit-preserve-aspect" />
+				<Label id="item_charges" text=""/>
+				<Panel hittest="false" id="DropTargetHighlight"/>
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="BagOverlay" hittest="false" >
+		<Panel class="hidden" id="BagPanel" hittest = "false">
+			<Panel class="down" id="ContentPanel"/>
+		</Panel>
+	</Panel>
+</root>

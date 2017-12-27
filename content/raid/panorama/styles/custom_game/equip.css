@@ -1,0 +1,102 @@
+.EquipOverlay
+{
+	x:800px;
+	y:200px;
+	
+}
+
+#EquipPanel
+{
+	background-color: #222222;
+}
+
+#ContentPanel
+{
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	margin-right: 20px;
+}
+
+.slot
+{
+	width: 75px;
+	height: 55px;
+	margin: 1px;
+	border: 1px solid #59e299;
+}
+
+.col_1
+{
+	margin-top: 75px;
+}
+
+.col_2
+{
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.col_3
+{
+	margin-top: 75px;
+	margin-left: 20px;
+}
+
+#item_img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.dragging_from
+{
+	saturation: 0.5;
+	wash-color: #808080;
+}
+
+#DropTargetHighlight
+{
+	width: 100%;
+	height: 100%;
+	background-color: gradient( radial, 50% -20%, 0% 0%, 80% 80%, from( #FFFFFF ), to( #FFFFFF00 ) );
+	opacity: 0;
+}
+
+.potential_drop_target #DropTargetHighlight
+{
+	opacity: 0.3;
+}
+
+#StatPanel
+{
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 10px;
+}
+
+#HeroName
+{
+	font-size: 35px;
+	margin-top: 20px;
+	color: red;
+}
+
+#AverageScore
+{
+	font-size: 25px;
+	color: yellow;
+	margin-top: 15px;
+}
+
+#Attributes
+{
+	margin-top: 30px;
+}
+
+.stat_label
+{
+	font-size: 25px;
+	margin-top: 10px;
+}
+

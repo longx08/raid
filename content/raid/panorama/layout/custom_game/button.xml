@@ -1,0 +1,17 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/styles/custom_game/koim.css" />
+		<include src="file://{resources}/styles/custom_game/button.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/button.js" />
+	</scripts>
+	<Panel class="ButtonOverlay" hittest="false" >
+		<Panel class="right" id="ContentPanel">
+			<Label class="button" id="SkillButton" text="#button_skill" onactivate="PressSkill()" />
+			<Label class="button" id="EquipButton" text="#button_equip" onactivate="PressEquip()" />
+			<Label class="button" id="BagButton" text="#button_bag" onactivate="PressBag()" />
+		</Panel >
+	</Panel>
+</root>

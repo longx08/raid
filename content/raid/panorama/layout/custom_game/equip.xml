@@ -1,0 +1,41 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/styles/custom_game/koim.css" />
+		<include src="file://{resources}/styles/custom_game/equip.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/equip.js" />
+		<include src="file://{resources}/scripts/custom_game/tooltip.js" />
+	</scripts>
+	<snippets>
+		<snippet name="slot">
+			<Panel class="slot" hittestchildren="false">
+				<DOTAItemImage id="item_img" scaling="stretch-to-fit-preserve-aspect" />
+				<Label id="item_charges" text=""/>
+				<Panel hittest="false" id="DropTargetHighlight"/>
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="EquipOverlay" hittest="false" >
+		<Panel class="right hidden"  id="EquipPanel" hittest="false">
+			<Panel class="right" id="ContentPanel">
+				<Panel class="down" id="col_1"/>
+				<Panel class="down" id="col_2"/>
+				<Panel class="down" id="col_3"/>
+			</Panel>
+			<Panel class="down" id="StatPanel">
+				<Label id="PlayerName" text="" />
+				<Label id="HeroName" text = ""/>
+				<Label id="AverageScore" text="" />
+				<Panel class="down" id="Attributes">
+					<Label class="stat_label" id="ap" text="ap:"/>
+					<Label class="stat_label" id="sp" text="sp:"/>
+					<Label class="stat_label" id="crit" text="crit:"/>
+					<Label class="stat_label" id="cdamage" text="cdamage:"/>
+					<Label class="stat_label" id="block" text="block:"/>
+				</Panel>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

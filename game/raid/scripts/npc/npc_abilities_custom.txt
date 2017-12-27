@@ -1,0 +1,177 @@
+// Dota Heroes File
+"DOTAAbilities"
+{
+	"Version"		"1"
+
+	//=================================================================================================================
+	// dk: 冲锋
+	//=================================================================================================================
+	"dk_charge"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/dk/dk_charge"
+		"AbilityTextureName"			"centaur_return"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"		
+		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_BOTH"
+    	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+
+		// Level
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"              		 "4"
+    	"RequiredLevel"         		 "-4"
+    	"LevelsBetweenUpgrades" 		 "2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation"   		"ACT_DOTA_RUN"
+    	"AnimationPlaybackRate"  		"1"
+  		"AnimationIgnoresModelScale"	"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"13.0 11.0 9.0 7.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50 75 100 125"
+
+		// Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"       		"%distance"
+		"AbilityCastRangeBuffer"  		"250"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"distance"					"800 1000 1200 1400"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed"						"1300"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"multiple"					"0.5 0.75 1.0 1.25"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// dk: 巨龙打击
+	//=================================================================================================================
+	"dk_strike"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/dk/dk_strike"
+		"AbilityTextureName"			"dragon_knight_dragon_tail"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"		
+		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+
+		// Level
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"              		 "4"
+    	"RequiredLevel"         		 "-4"
+    	"LevelsBetweenUpgrades" 		 "2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation"   		"ACT_DOTA_CAST_ABILITY_2"
+    	"AnimationPlaybackRate"  		"1"
+  		"AnimationIgnoresModelScale"	"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"4.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"20 25 30 35"
+
+		// Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"       		"200"
+		"AbilityCastRangeBuffer"  		"250"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"multiple"					"1 1.5 2 2.5"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// dk: 龙之吐息
+	//=================================================================================================================
+	"dk_breathe"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/dk/dk_breathe"
+		"AbilityTextureName"			"dragon_knight_breathe_fire"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"		
+		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+
+		// Level
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"              		 "4"
+    	"RequiredLevel"         		 "-4"
+    	"LevelsBetweenUpgrades" 		 "2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation"   		"ACT_DOTA_CAST_ABILITY_1"
+    	"AnimationPlaybackRate"  		"1"
+  		"AnimationIgnoresModelScale"	"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"30 40 50 60"
+
+		// Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"       		"500"
+		"AbilityCastRangeBuffer"  		"250"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"multiple"					"1 1.5 2 2.5"
+			}
+		}
+	}
+}

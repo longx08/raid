@@ -1,0 +1,87 @@
+"Info"
+{
+	"npc_dota_hero_dragon_knight"
+	{
+		"active" //主动技能
+		{
+			"01"
+			{						
+				"name"		"dk_charge"
+				"current"	"1"
+				"level"		"1"
+				"cost"	
+				{
+					"0"		"0"
+					"1"		"20"
+					"2"		"50"
+					"3"		"100"
+					"4"		"-1"
+				}
+			}
+			"02"
+			{						
+				"name"		"dk_strike"
+				"current"	"1"
+				"level"		"1"
+				"cost"	
+				{
+					"0"		"0"
+					"1"		"20"
+					"2"		"50"
+					"3"		"100"
+					"4"		"-1"
+				}
+			}
+		}
+		"passive"  //被动技能
+		{
+			"01"
+			{		
+				"name"		"axe_counter_helix"				
+				"level"		"1"
+				"cost"	
+				{
+					"0"		"0"
+					"1"		"20"
+					"2"		"50"
+					"3"		"-1"
+				}
+			}
+		}
+	}
+	"npc_dota_hero_treant"
+	{
+		"active" //主动技能
+		{
+			"01"
+			{						
+				"name"		"dk_charge"
+				"current"	"1"
+				"level"		"1"
+				"cost"	
+				{
+					"0"		"0"
+					"1"		"20"
+					"2"		"50"
+					"3"		"100"
+					"4"		"-1"
+				}
+			}
+		}
+		"passive"  //被动技能
+		{
+			"01"
+			{		
+				"name"		"axe_counter_helix"				
+				"level"		"1"
+				"cost"	
+				{
+					"0"		"0"
+					"1"		"20"
+					"2"		"50"
+					"3"		"-1"
+				}
+			}
+		}
+	}
+}

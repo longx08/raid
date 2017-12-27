@@ -1,0 +1,14 @@
+.right
+{
+	flow-children:right;
+}
+
+.down
+{
+	flow-children:down;
+}
+
+.hidden
+{
+	visibility: collapse;
+}

@@ -1,0 +1,27 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/styles/custom_game/koim.css" />
+		<include src="file://{resources}/styles/custom_game/dps.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/dps.js" />
+	</scripts>
+	<snippets>
+		<snippet name="row">
+			<Panel class="right row">
+				<Label id="ranking" />
+				<Label id="player" />
+				<Label id="dps" />
+				<Label id="hps" />
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="DpsOverlay" hittest="false" >
+		<Panel class="down" id="ContentPanel" >
+			<Label id="Time" text = ""/>
+			<Panel id="TitlePanel"/>
+			<Panel class="down" id="DpsPanel"/>
+		</Panel>
+	</Panel>
+</root>

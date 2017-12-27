@@ -1,0 +1,31 @@
+"AddonInfo"
+{  
+	"TeamCount"  	"1"  
+	"maps"   		"raid1"   
+	"Isplayable"  	"1"   
+	"raid1"  
+	{      
+		"MaxPlayers"    "10"    
+	} 
+	"Default_Keys"
+	{
+		"01"
+		{
+			"Key"		"C"
+			"Command"	"OpenSkill"
+			"Name"		"OpenSkill"
+		}
+        "02"
+		{
+			"Key"		"V"
+			"Command"	"OpenEquip"
+			"Name"		"OpenEquip"
+		}
+		"03"
+		{
+			"Key"		"B"
+			"Command"	"OpenBag"
+			"Name"		"OpenBag"
+		}
+	}
+}
