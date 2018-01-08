@@ -13,6 +13,11 @@ function dk_strike:OnSpellStart()
 		return
 	end
 	local multiple = self:GetSpecialValueFor("multiple")
-	DoDamage(caster,target,Equip:GetAttackPower(caster)*multiple,DAMAGE_TYPE_PHYSICAL,0,self)
+	local damage = Equip:GetAttackPower(caster)*multiple
+	if target:HasModifier("modifier_dk_breathe") then
+		damage = damage * 1.5
+	end
+	caster:EmitSound("Hero_DragonKnight.DragonTail.Target")
+	DoDamage(caster,target,damage,DAMAGE_TYPE_PHYSICAL,0,self)
 	-- body
 end

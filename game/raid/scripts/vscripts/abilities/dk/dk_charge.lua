@@ -13,6 +13,7 @@ function dk_charge:OnSpellStart()
 	if caster == nil or target == nil or caster == target then
 		return
 	end
+	caster:EmitSound("Hero_Centaur.Stampede.Cast")
 	caster:AddNewModifier(caster, self, "modifier_dk_charge", {})
 	-- body
 end

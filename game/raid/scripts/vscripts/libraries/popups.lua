@@ -49,6 +49,11 @@ function PopupHealing(target, amount)
     PopupNumbers(target, "heal", Vector(0, 255, 0), 1.3, amount, POPUP_SYMBOL_PRE_PLUS, nil)
 end
 
+function PopupCriticalHealing( target,amount )
+    PopupNumbers(target,"heal",Vector(0,255,0),1.3,amount,POPUP_SYMBOL_PRE_PLUS,POPUP_SYMBOL_POST_LIGHTNING)
+    -- body
+end
+
 -- e.g. the popup you get when you suddenly take a large portion of your health pool in damage at once
 function PopupDamage(target, amount)
     PopupNumbers(target, "damage", Vector(255, 0, 0), 1.0, amount, nil, POPUP_SYMBOL_POST_DROP)

@@ -71,7 +71,7 @@
 	"button_skill"			"技能C"
 	"button_equip"			"装备V"
 	"button_bag"			"背包B"
-
+	"button_dungeon"		"副本N"
 
 	// dps
 	"dps_ranking"			"排名"
@@ -80,4 +80,20 @@
 	"dps_hps"				"HPS"
 	"combat_0"				"休息中"
 	"combat_1"				"战斗中"
+
+	// 副本
+	"dungeon_current"		"当前副本："
+	"dungeon_teleport"		"传送"
+	"dungeon_new"			"开启新副本："
+	"dungeon_difficulty_1"		"普通"
+	"dungeon_difficulty_2"			"困难"
+	"dungeon_difficulty_3"			"地狱"
+	"dungeon_start_voting"	"提议开启"
+	"dungeon_confirm"		"同意"
+	"dungeon_cancel"		"拒绝"
+	"dungeon_null"			"空"
+	"dungeon_query"			"尝试开启副本："
+
+	"dungeon_1"				"副本1"
+	"dungeon_2"				"副本2"
 }

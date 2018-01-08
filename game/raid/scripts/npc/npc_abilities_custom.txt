@@ -13,7 +13,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/dk/dk_charge"
 		"AbilityTextureName"			"centaur_return"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"		
 		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_BOTH"
     	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -77,7 +77,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/dk/dk_strike"
 		"AbilityTextureName"			"dragon_knight_dragon_tail"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"		
 		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
     	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -91,7 +91,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------		
-		"AbilityCastPoint"				"0.2"
+		"AbilityCastPoint"				"0.3"
 		"AbilityCastAnimation"   		"ACT_DOTA_CAST_ABILITY_2"
     	"AnimationPlaybackRate"  		"1"
   		"AnimationIgnoresModelScale"	"1"
@@ -131,7 +131,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/dk/dk_breathe"
 		"AbilityTextureName"			"dragon_knight_breathe_fire"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"		
 		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
     	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -145,7 +145,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------		
-		"AbilityCastPoint"				"0.2"
+		"AbilityCastPoint"				"0.45"
 		"AbilityCastAnimation"   		"ACT_DOTA_CAST_ABILITY_1"
     	"AnimationPlaybackRate"  		"1"
   		"AnimationIgnoresModelScale"	"1"
@@ -170,7 +170,754 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"multiple"					"1 1.5 2 2.5"
+				"multiple"					"1.5 2 2.5 3"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"4.0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"decrease"					"-10 -15 -20 -25"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// dk: 格挡
+	//=================================================================================================================
+	"dk_block"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/dk/dk_block"
+		"AbilityTextureName"			"dragon_knight_dragon_blood"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"		
+		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+
+		// Level
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"              		 "4"
+    	"RequiredLevel"         		 "-4"
+    	"LevelsBetweenUpgrades" 		 "2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"   		"ACT_DOTA_CAST_ABILITY_1"
+    	"AnimationPlaybackRate"  		"1"
+  		"AnimationIgnoresModelScale"	"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 125 150 175"
+
+		// Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"       		"500"
+		"AbilityCastRangeBuffer"  		"250"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"multiple"					"0.5 1 1.5 2"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"4.0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow"					"-50 -40 -30 -20"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// dk: 嘲讽
+	//=================================================================================================================
+	"dk_taunt"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/dk/dk_taunt"
+		"AbilityTextureName"			"axe_berserkers_call"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"		
+		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+
+		// Level
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"              		 "4"
+    	"RequiredLevel"         		 "-4"
+    	"LevelsBetweenUpgrades" 		 "2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation"   		"ACT_DOTA_CAST_ABILITY_1"
+    	"AnimationPlaybackRate"  		"1"
+  		"AnimationIgnoresModelScale"	"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10 9 8 7"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"       		"800"
+		"AbilityCastRangeBuffer"  		"250"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"armor"						"3 6 9 12"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"3.0"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// tp: 治疗术
+	//=================================================================================================================
+	"tp_treatment"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/tp/tp_treatment"
+		"AbilityTextureName"			"treant_leech_seed"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"		
+		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_BOTH"
+    	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+
+		// Level
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"              		 "4"
+    	"RequiredLevel"         		 "-4"
+    	"LevelsBetweenUpgrades" 		 "2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation"   		"ACT_DOTA_CAST_ABILITY_1"
+    	"AnimationPlaybackRate"  		"1"
+  		"AnimationIgnoresModelScale"	"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2.0"
+		"AbilityChannelTime"			"2.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 125 150 175"
+
+		// Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"       		"600"
+		"AbilityCastRangeBuffer"  		"250"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"multiple"					"1.5 2 2.5 3"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// tp: 回复术
+	//=================================================================================================================
+	"tp_recovery"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/tp/tp_recovery"
+		"AbilityTextureName"			"huskar_inner_vitality"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"		
+		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+
+		// Level
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"              		 "4"
+    	"RequiredLevel"         		 "-4"
+    	"LevelsBetweenUpgrades" 		 "2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation"   		"ACT_DOTA_CAST_ABILITY_1"
+    	"AnimationPlaybackRate"  		"1"
+  		"AnimationIgnoresModelScale"	"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"8 7 6 5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50 75 100 125"
+
+		// Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"       		"600"
+		"AbilityCastRangeBuffer"  		"250"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"duration"					"15"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"multiple"					"0.3 0.5 0.7 0.9"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// tp: 庇佑
+	//=================================================================================================================
+	"tp_bless"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/tp/tp_bless"
+		"AbilityTextureName"			"omniknight_repel"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"		
+		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+
+		// Level
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"              		 "4"
+    	"RequiredLevel"         		 "-4"
+    	"LevelsBetweenUpgrades" 		 "2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilityCastPoint"				"0.45"
+		"AbilityCastAnimation"   		"ACT_DOTA_CAST_ABILITY_1"
+    	"AnimationPlaybackRate"  		"1"
+  		"AnimationIgnoresModelScale"	"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20 18 16 14"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"150"
+
+		// Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"       		"600"
+		"AbilityCastRangeBuffer"  		"250"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"2 2.5 3 3.5"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"resis"					"100"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// tp: 宁静
+	//=================================================================================================================
+	"tp_nature"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/tp/tp_nature"
+		"AbilityTextureName"			"tinker_rearm"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"		
+		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_BOTH"
+    	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+
+		// Level
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"              		 "4"
+    	"RequiredLevel"         		 "-4"
+    	"LevelsBetweenUpgrades" 		 "2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation"   		"ACT_DOTA_CAST_ABILITY_4"
+    	"AnimationPlaybackRate"  		"1"
+  		"AnimationIgnoresModelScale"	"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60 55 50 45"
+		"AbilityChannelTime"			"5.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200 250 300 350"
+
+		// Range
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AoERadius"						"%radius"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"400 500 600 700"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"multiple"					"1.25 1.5 1.75 2"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// tp: 复活
+	//=================================================================================================================
+	"tp_revive"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/tp/tp_revive"
+		"AbilityTextureName"			"skeleton_king_reincarnation"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"		
+		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO"
+    	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+
+		// Level
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"              		 "4"
+    	"RequiredLevel"         		 "-4"
+    	"LevelsBetweenUpgrades" 		 "2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilityCastPoint"				"0.5"
+		"AbilityCastAnimation"   		"ACT_DOTA_CAST_ABILITY_4"
+    	"AnimationPlaybackRate"  		"1"
+  		"AnimationIgnoresModelScale"	"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"90 80 70 60"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"125 150 175 200"
+
+		// Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"       		"600"
+		"AbilityCastRangeBuffer"  		"250"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"heal"					"20 25 30 35"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// lina: 魔法箭
+	//=================================================================================================================
+	"lina_missile"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lina/lina_missile"
+		"AbilityTextureName"			"vengefulspirit_magic_missile"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"		
+		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+
+		// Level
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"              		 "4"
+    	"RequiredLevel"         		 "-4"
+    	"LevelsBetweenUpgrades" 		 "2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation"   		"ACT_DOTA_CAST_ABILITY_1"
+    	"AnimationPlaybackRate"  		"1"
+  		"AnimationIgnoresModelScale"	"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+		"AbilityChannelTime"			"1.5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"40 60 80 100"
+
+		// Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"       		"600"
+		"AbilityCastRangeBuffer"  		"250"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed"					"800"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"multiple"					"1.5 2 2.5 3"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// lina: 光击阵
+	//=================================================================================================================
+	"lina_light"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lina/lina_light"
+		"AbilityTextureName"			"lina_light_strike_array"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"		
+		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+
+		// Level
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"              		 "4"
+    	"RequiredLevel"         		 "-4"
+    	"LevelsBetweenUpgrades" 		 "2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation"   		"ACT_DOTA_CAST_ABILITY_1"
+    	"AnimationPlaybackRate"  		"1"
+  		"AnimationIgnoresModelScale"	"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 125 150 175"
+
+		// Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"       		"600"
+		"AbilityCastRangeBuffer"  		"250"
+		"AoERadius"						"%radius"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"delay"						"0.5"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"radius"						"200 250 300 350"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"multiple"						"1 1.25 1.5 1.75"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"						"3"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"dot"						"0.3 0.4 0.5 0.6"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// lina: 炽魂
+	//=================================================================================================================
+	"lina_soul"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lina/lina_soul"
+		"AbilityTextureName"			"lina_fiery_soul"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"		
+		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+
+		// Level
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"              		 "4"
+    	"RequiredLevel"         		 "-4"
+    	"LevelsBetweenUpgrades" 		 "2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation"   		"ACT_DOTA_CAST_ABILITY_4"
+    	"AnimationPlaybackRate"  		"1"
+  		"AnimationIgnoresModelScale"	"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+
+		// Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"       		"600"
+		"AbilityCastRangeBuffer"  		"250"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"multiple"					"0.2"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"10"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max"					"4 5 6 7"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"speed"					"20"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"sp"					"5"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// lina: 魔法偷取
+	//=================================================================================================================
+	"lina_steal"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lina/lina_steal"
+		"AbilityTextureName"			"slardar_amplify_damage"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"		
+		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+
+		// Level
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"              		 "4"
+    	"RequiredLevel"         		 "-4"
+    	"LevelsBetweenUpgrades" 		 "2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation"   		"ACT_DOTA_CAST_ABILITY_4"
+    	"AnimationPlaybackRate"  		"1"
+  		"AnimationIgnoresModelScale"	"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60 55 50 45"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"       		"600"
+		"AbilityCastRangeBuffer"  		"250"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"duration"					"10"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"multiple"					"0.1 0.15 0.2 0.25"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// lina: 幽魂
+	//=================================================================================================================
+	"lina_ghost"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lina/lina_ghost"
+		"AbilityTextureName"			"pugna_decrepify"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"		
+		"AbilityUnitTargetTeam"  		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    	"AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    	"AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+
+		// Level
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"              		 "4"
+    	"RequiredLevel"         		 "-4"
+    	"LevelsBetweenUpgrades" 		 "2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation"   		"ACT_DOTA_CAST_ABILITY_2"
+    	"AnimationPlaybackRate"  		"1"
+  		"AnimationIgnoresModelScale"	"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60 50 40 30"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"       		"600"
+		"AbilityCastRangeBuffer"  		"250"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"3"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"incoming"					"-60 -70 -80 -90"
 			}
 		}
 	}

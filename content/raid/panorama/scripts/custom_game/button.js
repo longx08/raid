@@ -14,5 +14,10 @@ function PressBag () {
 	// body...
 }
 
+function PressDungeon() {
+	GameUI.CustomUIConfig().KoimOpenDungeon();
+	// body...
+}
+
 (function(){
 })()

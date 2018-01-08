@@ -132,7 +132,7 @@ return boolean
 function Equip:ChangeItemBySlot(hero,slot,itemIndex)
 	local playerID = hero:GetPlayerID()
 	--战斗中不能更换装备
-	if bINCOMBAT == true then
+	if GameRules.bINCOMBAT == true then
 		ShowError(playerID,"#equip_can_not_change_in_combat")
 		return false
 	end
@@ -172,7 +172,7 @@ return boolean
 function Equip:DropItem( hero,slot,itemIndex )
 	local playerID = hero:GetPlayerID()
 	--战斗中不能更换装备
-	if bINCOMBAT == true then
+	if GameRules.bINCOMBAT == true then
 		ShowError(playerID,"#equip_can_not_change_in_combat")
 		return false
 	end
@@ -193,7 +193,7 @@ end
 function Equip:SellItem( hero,slot,itemIndex )
 	local playerID = hero:GetPlayerID()
 	--战斗中不能更换装备
-	if bINCOMBAT == true then
+	if GameRules.bINCOMBAT == true then
 		ShowError(playerID,"#equip_can_not_change_in_combat")
 		return false
 	end
@@ -264,6 +264,7 @@ function Equip:GetAttackPower( hero )
 		end
 	end
 	ap = (ap + apBonus_Constant)*(1+apBonus_Percentage/100)
+	hero.ap = ap
 	return ap
 	-- body
 end
@@ -291,6 +292,7 @@ function Equip:GetSpellPower( hero )
 		end
 	end
 	sp = (sp + spBonus_Constant)*(1+spBonus_Percentage/100)
+	hero.sp = sp
 	return sp
 	-- body
 end
@@ -318,6 +320,7 @@ function Equip:GetSpellCrit( hero )
 		end
 	end
 	crit = (crit + critBonus_Constant)*(1+critBonus_Percentage/100)
+	hero.crit = crit
 	return crit
 	-- body
 end
@@ -345,6 +348,7 @@ function Equip:GetSpellCritDamage(hero)
 		end
 	end
 	cdamage = (cdamage + cdamageBonus_Constant)*(1+cdamageBonus_Percentage/100)
+	hero.cdamage = cdamage
 	return cdamage
 	-- body
 end
@@ -393,6 +397,7 @@ function Equip:GetBlock( hero )
 		end
 	end
 	block = (block + blockBonus_Constant)*(1+blockBonus_Percentage/100)
+	hero.block = block
 	return block
 	-- body
 end

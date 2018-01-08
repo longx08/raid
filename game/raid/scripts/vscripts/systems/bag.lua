@@ -251,7 +251,7 @@ function Bag:AddItem( hero,item )
 		print("bag has it")
 		return false
 	end
-	
+	ShowTips(hero:GetPlayerOwner(),"#get_item","#DOTA_Tooltip_ability_"..item:GetAbilityName(),nil)
 	local itemList = Bag:GetInfo(hero)
 	if item:IsStackable() then
 		local sameItem,bagSlot = self:FindItemByName(hero,item:GetAbilityName())

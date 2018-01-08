@@ -1,37 +1,43 @@
 
 LinkLuaModifier("modifier_tank", "modifiers/modifier_tank.lua",LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_all", "modifiers/modifier_all.lua",LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_respawn", "modifiers/modifier_respawn.lua",LUA_MODIFIER_MOTION_NONE)
 
 --游戏状态改变
 function GameMode:OnGameRulesStateChange( keys )
 	local newState = GameRules:State_Get()
-	if newState == DOTA_GAMERULES_STATE_STRATEGY_TIME then --策略时间
-	elseif newState == DOTA_GAMERULES_STATE_PRE_GAME then --游戏准备
+	if newState == DOTA_GAMERULES_STATE_HERO_SELECTION then --选英雄时间
+	elseif newState == DOTA_GAMERULES_STATE_STRATEGY_TIME then --策略时间
 		self:InitListener(  ) --初始化监听器		
+	elseif newState == DOTA_GAMERULES_STATE_PRE_GAME then --游戏准备
+						
 	elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then --游戏开始
 		GameRules.HERO_TABLE = HeroList:GetAllHeroes()
 		self:SpawnCreeps()
+		Dungeon:Init(  )
 	end
 	-- body
 end
 
 --刷新小怪
 function GameMode:SpawnCreeps( )
-	GameMode.creep_num = 0
+	GameMode.camp_num = 0
 	GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("spawn_creeps"), function (  )
-		if GameMode.creep_num < #GameRules.HERO_TABLE then
-			local creep = CreateUnitByName("npc_dota_creature_gnoll_assassin", Vector(1500,0,128)+RandomVector(RandomInt(20, 300)), true, nil, nil, DOTA_TEAM_NEUTRALS)
+		if GameMode.camp_num < #GameRules.HERO_TABLE then
+			local creep = CreateUnitByName("npc_dota_creature_gnoll_assassin", Vector(2000,0,128)+RandomVector(RandomInt(20, 300)), true, nil, nil, DOTA_TEAM_NEUTRALS)
 			if creep then
-				GameMode.creep_num = GameMode.creep_num + 1
+				GameMode.camp_num = GameMode.camp_num + 1
 				local total = 0
 				for _,v in pairs(GameRules.HERO_TABLE) do
 					total = total + v.average_score or 0
 				end
 				local new_health = creep:GetMaxHealth()*(1+total/100)
+				creep:SetBaseMaxHealth(new_health)
 				creep:SetMaxHealth(new_health)
 				creep:SetHealth(new_health)
 			end
 		end
-		if GameMode.creep_num < #GameRules.HERO_TABLE then
+		if GameMode.camp_num < #GameRules.HERO_TABLE then
 			return 3
 		end
 		return 10
@@ -50,19 +56,23 @@ end
 function GameMode:OnNPCSpawned( keys )
 	local unit = EntIndexToHScript(keys.entindex)
 	if unit:IsRealHero() then --英雄
+		unit:AddNewModifier(unit, nil, "modifier_respawn", {duration = 3})
 		unit:SetAbilityPoints(0)
 		if unit.bFirstSpawned == nil then --第一次出生
 			unit.bFirstSpawned = true
-			if unit:GetUnitName() == "npc_dota_hero_dragon_knight" then  --添加坦克buff
+			--添加坦克buff
+			if unit:GetUnitName() == "npc_dota_hero_dragon_knight" then  
 				unit:AddNewModifier(unit, nil, "modifier_tank", {})
 			end
 			--初始化英雄的各系统：背包，装备，技能，战斗
 			Bag:InitBag(unit)
 			Equip:InitEquip( unit )
 			Skill:InitSkill(unit)
-			Combat:InitCombat(unit)
-		end
-		
+			--召唤物
+			unit.summon_unit = {}
+		else
+			Dungeon:Teleport(unit)
+		end	
 	end
 	-- body
 end
@@ -78,41 +88,60 @@ function GameMode:OnEntityKilled( keys )
   	if keys.entindex_inflictor ~= nil then
     	ability = EntIndexToHScript( keys.entindex_inflictor )
   	end
-  	-- 判断团灭，复活英雄
-  	if unit:IsRealHero() then
-  		if self:IsTeamWipe() then
-  			GameRules.bINCOMBAT = false
-  			for _,v in pairs(GameRules.GameRules.HERO_TABLE) do
-  				v:RespawnHero(false, false)
-  			end
-  		end
-  	end
-  	-- 小怪掉落装备
-  	if unit:GetUnitName() == "npc_dota_creature_gnoll_assassin" then
-  		GameMode.creep_num = GameMode.creep_num - 1
-  		if RandomInt(0, 100) < 30 + #GameRules.GameRules.HERO_TABLE*5 then
-			local item = CreateItem("item_chest_01", nil,nil)
-			if item then
-				local position = unit:GetAbsOrigin()+RandomVector(RandomInt(1, 200))
-				CreateItemOnPositionSync(position, item)
-				item:LaunchLoot(false, 150, 0.75, position)
+  	
+  	--杀死所有召唤物
+	if unit.summon_unit then
+		for _,v in pairs(unit.summon_unit) do
+			if v and (not v:IsNull()) and v:IsAlive() then
+				v:ForceKill(false)
 			end
 		end
+		unit.summon_unit = {}
+	end
+	--清除玩家的单位在仇恨表中的信息
+  	if unit:GetTeam() == DOTA_TEAM_GOODGUYS then
+  		Combat:DeleteFromAggroTable(unit:GetEntityIndex())
   	end
+	--死亡的英雄等待战斗结束后复活
+  	if unit:IsRealHero() then 
+  		unit:SetContextThink(DoUniqueString("waiting_for_respawn"), function (  )
+  			if unit:IsAlive() then --已经复活（比如被战复），则结束think
+  				return nil
+  			end
+  			if GameRules.bINCOMBAT == false then
+  				unit:RespawnHero(false, false)
+				local hPlayer = unit:GetPlayerOwner()
+				if hPlayer then
+					hPlayer:SetMusicStatus(0, 1.0)
+				end
+				return nil
+			end
+			return 1
+  			-- body
+  		end, 2)		
+  	end
+  	--死亡的是怪物
+  	if unit:IsCreature() then
+  		local label = unit:GetUnitLabel()
+  		if label == "boss" or label == "creep" or label == "add" then --副本中的怪物
+  			Dungeon:OnCreatureDead(unit)
+  		elseif label == "camp" then --营地里的怪
+  			GameMode.camp_num = GameMode.camp_num - 1
+	  		if RandomInt(0, 100) < 30 + #GameRules.HERO_TABLE*5 then
+				local item = CreateItem("item_chest_01", nil,nil)
+				if item then
+					local position = unit:GetAbsOrigin()+RandomVector(RandomInt(1, 200))
+					CreateItemOnPositionSync(position, item)
+					item:LaunchLoot(false, 150, 0.75, position)
+				end
+			end
+		elseif label == "summon" then -- 玩家召唤物
+		end
+  	end		
 	-- body
 end
 
--- 是否全部阵亡（团灭）
-function GameMode:IsTeamWipe( )
-	--print("hero number:"..#GameRules.HERO_TABLE)
-	for _,v in pairs(GameRules.HERO_TABLE) do
-		if v:IsAlive() then
-			return false
-		end
-	end
-	return true
-	-- body
-end
+
 
 -- 英雄升级
 function GameMode:OnPlayerLevelUp( keys )
@@ -156,6 +185,17 @@ function GameMode:OnPlayerChat( keys )
     			hero:AddNewModifier(hero, nil, "modifier_tank", {})
     		end
     	end
+    elseif keys.text == "-aggro" then
+    	Combat:ShowAggro()
+    elseif keys.text == "-test" then
+    	local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
+    	if hero and IsInToolsMode() then
+    		if hero:HasModifier("modifier_all") then
+    			hero:RemoveModifierByName("modifier_all")
+    		else
+    			hero:AddNewModifier(hero, nil, "modifier_all", {})
+    		end
+    	end
     end
 	-- body
 end
@@ -169,12 +209,36 @@ function GameMode:DamageFilter( keys )
 	local victim = keys.entindex_victim_const
 	if victim ~= nil then
 		victim = EntIndexToHScript(victim)
-	else
-		return true
+	end
+	local attacker = keys.entindex_attacker_const
+	if attacker ~= nil then
+		attacker = EntIndexToHScript(attacker)
 	end
 	if keys.entindex_inflictor_const == nil then
 		local block = Equip:GetBlock( victim )
 		keys.damage = keys.damage - block
+	end
+	-- 死亡或者刚出生不造成伤害
+	if (not attacker:IsAlive()) or attacker:HasModifier("modifier_respawn") then
+		print("already dead")
+		return false
+	end
+	Combat:DealDamage(attacker,victim,keys.damage)
+	return true
+	-- body
+end
+
+-- 治疗过滤器
+function GameMode:HealingFilter( keys )
+	--keys.heal  治疗量
+	--keys.entindex_inflictor_const 来源，可能为nil
+	--keys.entindex_target_const 受到治疗的目标
+
+	if keys.entindex_inflictor_const and GameRules.bINCOMBAT == true then
+		local caster = EntIndexToHScript(keys.entindex_inflictor_const)
+		if caster then
+			Combat:DealHeal(caster,keys.heal)
+		end
 	end
 	return true
 	-- body
@@ -201,6 +265,11 @@ function GameMode:InitListener(  )
 	CustomGameEventManager:RegisterListener("skill_change_current", OnSkillChangeCurrent)
 	CustomGameEventManager:RegisterListener("skill_level_up", OnSkillLevelUp)
 	CustomGameEventManager:RegisterListener("skill_apply", OnSkillApply)
+
+	CustomGameEventManager:RegisterListener("dungeon_start_voting", OnDungeonStartVoting)
+	CustomGameEventManager:RegisterListener("dungeon_vote_yes", OnDungeonVoteYes)
+	CustomGameEventManager:RegisterListener("dungeon_vote_no", OnDungeonVoteNo)
+	CustomGameEventManager:RegisterListener("dungeon_teleport", OnDungeonTeleport)
 	-- body
 end
 
@@ -424,5 +493,67 @@ function OnSkillApply( event,data )
 		return
 	end
 	Skill:Apply(hero)
+	-- body
+end
+
+--[[
+事件：开启副本投票
+@param handle event
+@param handle data
+]]
+function OnDungeonStartVoting( event,data )
+	local hero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
+	if hero == nil then
+		return
+	end
+	--print("start voting")
+	Dungeon:StartVoting(data.PlayerID, data.name,data.difficulty )
+	-- body
+end
+
+--[[
+事件：副本投票YES
+@param handle event
+@param handle data
+]]
+function OnDungeonVoteYes( event,data )
+	local hero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
+	if hero == nil then
+		return
+	end
+	--print("yes")
+	hero.bVoteYes = true
+	--CustomGameEventManager:Send_ServerToAllClients("player_vote_info", {id=data.PlayerID,yes=true})
+	-- body
+end
+
+--[[
+事件：副本投票NO
+@param handle event
+@param handle data
+]]
+function OnDungeonVoteNo( event,data )
+	local hero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
+	if hero == nil then
+		return
+	end
+	--print("no")
+	hero.bVoteYes = false
+	--CustomGameEventManager:Send_ServerToAllClients("player_vote_info", {id=data.PlayerID,yes=false})
+	-- body
+end
+
+--[[
+事件：副本传送
+@param handle event
+@param handle data
+]]
+function OnDungeonTeleport( event,data )
+	local hero = PlayerResource:GetSelectedHeroEntity(data.PlayerID)
+	if hero == nil then
+		return
+	end
+	--print("teleport")
+	Dungeon:Teleport(hero)
 	-- body
 end

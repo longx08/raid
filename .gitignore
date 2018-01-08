@@ -1,0 +1,10 @@
+/content/raid/flash/
+/content/raid/maps/
+/content/raid/materials/
+/content/raid/particles/
+/game/raid/maps/
+/game/raid/materials/
+/game/raid/panorama/
+/game/raid/particles/
+/game/raid/resource/
+*.bin

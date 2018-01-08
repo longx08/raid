@@ -16,6 +16,7 @@ require("systems/skill")  --技能系统
 require("systems/items")  --物品系统
 require("systems/combat")  --战斗系统
 require("systems/damage_heal")  --伤害治疗系统
+require("systems/dungeon")  --副本系统
 
 -- 时间库，允许延迟动作
 require('libraries/timers')
@@ -50,7 +51,37 @@ function Precache( context )
 			PrecacheResource( "particle", "*.vpcf", context )
 			PrecacheResource( "particle_folder", "particles/folder", context )
 	]]
-	PrecacheResource( "soundfile", "game_sounds_ui.vsndevts", context )
+	local Sound = {
+		"soundevents/game_sounds_hero_pick.vsndevts",
+		"soundevents/game_sounds_ui.vsndevts",
+		"soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts",
+		"soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts",
+		"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts",
+		"soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts",
+		"soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts",
+		"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts",
+		"soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts",
+		"soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts",
+		"soundevents/game_sounds_heroes/game_sounds_oracle.vsndevts",
+		"soundevents/game_sounds_heroes/game_sounds_vengefulspirit.vsndevts"
+	}
+	for _,v in pairs(Sound) do
+		PrecacheResource("soundfile", v, context)
+	end
+
+	local Particle = {
+		"particles/units/heroes/hero_huskar/huskar_inner_vitality.vpcf",
+		"particles/units/heroes/hero_vengeful/vengeful_magic_missle.vpcf",
+		"particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf",
+		"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf",
+		"particles/econ/items/bounty_hunter/bounty_hunter_hunters_hoard/bounty_hunter_hoard_track_trail.vpcf",
+		"particles/units/heroes/hero_batrider/batrider_firefly_debuff.vpcf",
+		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf",
+		"particles/items_fx/black_king_bar_avatar.vpcf"
+	}
+	for _,v in pairs(Particle) do
+		PrecacheResource("particle", v, context)
+	end
 end
 
 -- Create the game mode when we activate
@@ -71,9 +102,18 @@ function GameMode:InitGameMode()
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 0)
 	GameRules:SetSameHeroSelectionEnabled(true)
 	GameRules:SetHeroRespawnEnabled(false)
-	GameRules:SetHideKillMessageHeaders( true )
+	GameRules:SetHideKillMessageHeaders( true )  --击杀信息？
 	GameRules:SetFirstBloodActive(false)
+	GameRules:SetCustomGameAllowHeroPickMusic( false ) --选英雄音乐
+ 	GameRules:SetCustomGameAllowBattleMusic( false ) --战斗音乐
+ 	GameRules:SetCustomGameAllowMusicAtGameStart( true )
+	GameRules:SetCustomGameSetupTimeout( 10 )
+	GameRules:SetCustomGameSetupAutoLaunchDelay( 0 )
+	GameRules:SetHeroSelectionTime( 30.0 )
+	GameRules:SetStrategyTime( 0.0 )
+	GameRules:SetShowcaseTime( 0.0 )
 	GameRules:SetPreGameTime(10)
+	GameRules:SetPostGameTime( 45.0 )
 
 	-- 监听
 	ListenToGameEvent('entity_killed', Dynamic_Wrap(GameMode, 'OnEntityKilled'), self)
@@ -90,6 +130,7 @@ function GameMode:InitGameMode()
 
   	-- filter
   	GameRules:GetGameModeEntity():SetDamageFilter(Dynamic_Wrap(GameMode,"DamageFilter"), self)
+  	GameRules:GetGameModeEntity():SetHealingFilter(Dynamic_Wrap(GameMode,"HealingFilter"), self)
   	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(GameMode,"OrderFilter"), self)
 
   	-- 平衡性常数
@@ -108,6 +149,9 @@ function GameMode:InitGameMode()
   	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MAGIC_RESISTANCE_PERCENT,0.0005)
 
   	-- 其他设置
+  	GameRules:GetGameModeEntity():SetRemoveIllusionsOnDeath( true )
+  	GameRules:GetGameModeEntity():SetDeathOverlayDisabled( true )  --死亡显示？
+  	GameRules:GetGameModeEntity():SetHudCombatEventsDisabled( true ) --？？
   	GameRules:GetGameModeEntity():SetBuybackEnabled(false)
   	GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(13)
   	GameRules:GetGameModeEntity():SetFogOfWarDisabled(true)

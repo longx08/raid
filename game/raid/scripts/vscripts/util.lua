@@ -58,6 +58,26 @@ function TableFindKey( table, val )
 	return nil
 end
 
+-- 最大value的key和value
+function TableMaxValue( table )
+	if table == nil then
+		return nil
+	end
+	local key = nil
+	local max = nil
+	for k,v in pairs(table) do
+		if max == nil then
+			key = k
+			max = v
+		end
+		if max < v then
+			key = k
+			max = v
+		end
+	end
+	return key,max
+	-- body
+end
 
 --显示错误信息
 function ShowError( PlayerID,msg )
@@ -79,7 +99,13 @@ function ShowTips( PlayerID,msg1,msg2,msg3 )
 end
 
 --显示全局信息
-function ShowAll( msg )
-	Notifications:TopToAll({text=msg,duration=5.0,style={color="red", ["font-size"]="50px", border="0px"}})
+function ShowAll( msg1,msg2,msg3 )
+	Notifications:TopToAll({text=msg1,duration=3.0,style={color="red", ["font-size"]="40px", border="0px"}})
+	if msg2 then
+		Notifications:TopToAll({text=msg2,duration=3.0,style={color="red", ["font-size"]="40px", border="0px"},continue=true})
+	end
+	if msg3 then
+		Notifications:TopToAll({text=msg3,duration=3.0,style={color="red", ["font-size"]="40px", border="0px"},continue=true})
+	end
 	-- body
 end

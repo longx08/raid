@@ -41,6 +41,7 @@
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/equip.xml" />
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/skill.xml" />
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/dps.xml" />
+        <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/dungeon.xml" />
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/context_menu.xml" />
 	</Panel>
 </root>

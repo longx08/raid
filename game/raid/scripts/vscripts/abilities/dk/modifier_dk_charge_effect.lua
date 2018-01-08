@@ -1,6 +1,5 @@
-if modifier_dk_charge_effect == nil then
-	modifier_dk_charge_effect = class({})
-end
+
+modifier_dk_charge_effect = class({})
 
 function modifier_dk_charge_effect:IsHidden()
 	return false
@@ -17,6 +16,13 @@ function modifier_dk_charge_effect:IsPurgable( )
 	-- body
 end
 
+function modifier_dk_charge_effect:GetEffectName()
+    return "particles/generic_gameplay/generic_stunned.vpcf"
+end
+
+function modifier_dk_charge_effect:GetEffectAttachType()
+    return PATTACH_OVERHEAD_FOLLOW
+end
 
 function modifier_dk_charge_effect:CheckState()
 	local state = {

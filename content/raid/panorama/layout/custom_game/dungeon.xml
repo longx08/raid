@@ -1,0 +1,39 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/styles/custom_game/koim.css" />
+		<include src="file://{resources}/styles/custom_game/dungeon.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/dungeon.js" />
+	</scripts>
+	<Panel class="DungeonOverlay" hittest="false" >
+		<Panel class="down hidden" id="DungeonPanel" hittest="false">
+			<Panel class="right" id="Current" hittest="false">
+				<Label id="CurrentName" text="#dungeon_current"/>
+				<Label id="CurrentNameText" text=""/>
+				<Label id="CurrentDifficultyText" text=""/>
+				<Label id="Teleport" text="#dungeon_teleport" onactivate="Teleport()" />
+			</Panel>
+			<Panel class="right" id="New" hittest="false">
+				<Label id="NewName" text="#dungeon_new"/>
+				<DropDown  id="NewNameList" oninputsubmit="OnDropDownChanged()">
+				</DropDown>
+				<RadioButton chesked="checked" group="Difficulty" id="Difficulty_1" text="#dungeon_difficulty_1"/>
+				<RadioButton group="Difficulty" id="Difficulty_2"  text="#dungeon_difficulty_2"/>
+				<RadioButton group="Difficulty" id="Difficulty_3"  text="#dungeon_difficulty_3"/>
+				<Label id="StartVoting" text="#dungeon_start_voting" onactivate="StartVoting()" />
+			</Panel>
+			<Panel class="right hidden" id="Vote" hittest="false">
+				<Label id="VoteQuery" text="#dungeon_query"/>
+				<Label id="VotingDungeon" text=""/>
+				<Label id="VotingDifficulty" text=""/>
+				<Label id="Timer" text="10"/>
+				<Label id="Confirm" text="#dungeon_confirm" onactivate="Confirm()"/>
+				<Label id="Cancel" text="#dungeon_cancel" onactivate="Cancel()"/>
+			</Panel>
+			<Panel class="right hidden" id="Portrait" hittest="false">
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

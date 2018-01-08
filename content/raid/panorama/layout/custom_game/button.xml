@@ -12,6 +12,7 @@
 			<Label class="button" id="SkillButton" text="#button_skill" onactivate="PressSkill()" />
 			<Label class="button" id="EquipButton" text="#button_equip" onactivate="PressEquip()" />
 			<Label class="button" id="BagButton" text="#button_bag" onactivate="PressBag()" />
+			<Label class="button" id="DungeonButton" text="#button_dungeon" onactivate="PressDungeon()" />
 		</Panel >
 	</Panel>
 </root>

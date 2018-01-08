@@ -374,4 +374,56 @@
 		"ItemInitialCharges"			"1"		
 		"ItemCastOnPickup"				"0"
 	}
+
+	"item_chest_05"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3005"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_present"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/treasure_chest001.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"1"		
+		"ItemInitialCharges"			"1"		
+		"ItemCastOnPickup"				"0"
+	}
+
+	"item_chest_06"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3006"
+
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_present"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/treasure_chest001.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+		"ItemDroppable"					"1"
+		"ItemKillable"					"0"
+		"ItemPermanent"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"1"		
+		"ItemInitialCharges"			"1"		
+		"ItemCastOnPickup"				"0"
+	}
 }

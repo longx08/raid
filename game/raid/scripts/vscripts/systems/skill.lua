@@ -154,7 +154,7 @@ end
 function Skill:Apply( hero )
 	--print("apply")
 	local playerID = hero:GetPlayerID()
-	if bINCOMBAT == true then
+	if GameRules.bINCOMBAT == true then
 		ShowError(playerID,"skill_can_not_change_in_combat")
 		return
 	end

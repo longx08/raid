@@ -136,17 +136,11 @@ function Items:OpenChest( hero,item,bagSlot )
 	if RandomInt(1, 100) < 20 then   					 --20%几率宝箱等级+1
 		level = level + 1
 	end
-	if RandomInt(1, 100) < 50 then                        --获得装备
-		local name = self:GetRandomItemName(level)
-		local equipment = self:CreateItemByLevel(name,level*5)
-		if equipment then
-			ShowTips(hero:GetPlayerOwner(),"#chest_get_equipment","#DOTA_Tooltip_ability_"..name,nil)
-			Bag:AddItem( hero,equipment )
-		end
-	else
-		local crystal = math.floor((level*5+ RandomFloat(-1, 1) )^1.1+0.5)
-		ShowTips(hero:GetPlayerOwner(),"#chest_get_crystal","+"..tostring(crystal),nil)
-		Skill:ChangeCrystal( hero,crystal )          --获得水晶
+    --获得装备
+	local name = self:GetRandomItemName(level)
+	local equipment = self:CreateItemByLevel(name,level*5)
+	if equipment then
+		Bag:AddItem( hero,equipment )
 	end
 	-- body
 end

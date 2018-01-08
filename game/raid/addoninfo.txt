@@ -27,5 +27,11 @@
 			"Command"	"OpenBag"
 			"Name"		"OpenBag"
 		}
+"04"
+		{
+			"Key"		"N"
+			"Command"	"OpenDungeon"
+			"Name"		"OpenDungeon"
+		}
 	}
 }
